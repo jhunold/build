@@ -198,10 +198,8 @@ void out_compile_database
     if (source
        && strstr(action, "compile") != NULL)
     {
-        char* wd = getcwd(NULL, sizeof(wd));
         fputs("{ \"directory\": \"", globs.comp_db);
-        out_json(wd, globs.comp_db);
-        free(wd);
+        out_json(cwd(), globs.comp_db);
         fputs("\", \"command\": \"", globs.comp_db);
         out_json(command, globs.comp_db);
         fputs("\", \"file\": \"", globs.comp_db);
